@@ -1,0 +1,6 @@
+#ifndef SHOOTER_APP_HPP
+#define SHOOTER_APP_HPP
+
+#define APP_VERSION "0.0.1"
+
+#endif // SHOOTER_APP_HPP

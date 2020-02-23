@@ -1,0 +1,4 @@
+namespace cage
+{
+    void hello();
+}
