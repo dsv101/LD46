@@ -9,6 +9,6 @@ Run (tested in archlinux):
     cmake ..
     make
     
-An executable will be made in `/build/src/Shooter`, libraries are statically linked currently.
+An executable will be made in `/build/app/src/Shooter`, libraries are statically linked currently.
 
 Requires OpenAl, libUDev, c++17, cmake 3.14+
