@@ -4,8 +4,8 @@
 #include <SFML/Graphics.hpp>
 
 // Not sure how to use CAGE/lib.hpp in cmake yet
-#include <lib.hpp>
-// #include "app.hpp"
+#include <CAGE/lib.hpp>
+#include "Shooter/app.hpp"
 
 int main()
 {
@@ -16,7 +16,7 @@ int main()
 
     cage::hello();
     // This should be defined in app.hpp, but for some reason it's not including it?
-    // std::cout << "Version: " << APP_VERSION << std::endl;
+    std::cout << "Version: " << APP_VERSION << std::endl;
 
     // Start the game loop
     while (window.isOpen())

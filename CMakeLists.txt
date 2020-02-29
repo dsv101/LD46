@@ -17,4 +17,5 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(sfml)
 
-add_subdirectory(src)
+add_subdirectory(lib)
+add_subdirectory(app)
