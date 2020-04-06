@@ -1,6 +1,8 @@
 #ifndef CAGE__RUNTIME_HPP
 #define CAGE__RUNTIME_HPP
 
+#include "CAGE/World.hpp"
+#include "CAGE/Window.hpp"
 #include <string>
 
 namespace cage
@@ -8,9 +10,15 @@ namespace cage
   class Runtime
   {
     public:
-      virtual int run(unsigned int width, unsigned int height, const std::string &title) = 0;
-      virtual unsigned int getWidth() = 0;
-      virtual unsigned int getHeight() = 0;
+      Runtime();
+      virtual ~Runtime();
+      void run();
+      void gotoWorld(World *world);
+    private:
+      void update(float dt);
+      void render();
+      Window *m_window;
+      World *m_activeWorld;
   };
 }
 
