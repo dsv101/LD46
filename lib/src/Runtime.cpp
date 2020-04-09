@@ -1,8 +1,7 @@
 #include "CAGE/Runtime.hpp"
-#include "CAGE/SFML/SfWindow.hpp"
 
 cage::Runtime::Runtime() :
-  m_window(new cage::sfml::SfWindow(cage::Window::Props { 1280, 720, "My Game" })),
+  m_renderWindow(new cage::SfRenderWindow(cage::SfVideoMode(1280, 720), "My Game")),
   m_activeWorld(nullptr)
 {
 
@@ -10,18 +9,26 @@ cage::Runtime::Runtime() :
 
 cage::Runtime::~Runtime()
 {
-  delete m_window;
+  delete m_renderWindow;
 }
 
 void cage::Runtime::run()
 {
-  while (m_window->isOpen())
+  SfClock clock;
+  while (m_renderWindow->isOpen())
   {
-    update(1.0f / 60.0f);
-    m_window->update();
-    m_window->clear();
+    SfEvent event;
+    while (m_renderWindow->pollEvent(event))
+    {
+      if (event.type == SfEventType::Closed)
+      {
+        m_renderWindow->close();
+      }
+    }
+    update(clock.getElapsedTime().asSeconds());
+    m_renderWindow->clear();
     render();
-    m_window->display();
+    m_renderWindow->display();
   }
 }
 
@@ -39,5 +46,5 @@ void cage::Runtime::update(float dt)
 void cage::Runtime::render()
 {
   if (m_activeWorld != nullptr)
-    m_activeWorld->render();
+    m_activeWorld->render(*m_renderWindow);
 }

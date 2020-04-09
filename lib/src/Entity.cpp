@@ -15,7 +15,7 @@ void cage::Entity::update(float dt)
 
 }
 
-void cage::Entity::render()
+void cage::Entity::render(SfRenderTarget &renderTarget)
 {
-  
+
 }

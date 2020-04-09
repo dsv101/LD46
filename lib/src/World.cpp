@@ -37,8 +37,8 @@ void cage::World::update(float dt)
   for (auto &entity : m_entities)
     entity->update(dt);
 }
-void cage::World::render()
+void cage::World::render(SfRenderTarget &renderTarget)
 {
   for (auto &entity : m_entities)
-    entity->render();
+    entity->render(renderTarget);
 }

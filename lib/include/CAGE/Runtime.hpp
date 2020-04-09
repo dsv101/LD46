@@ -2,7 +2,7 @@
 #define CAGE__RUNTIME_HPP
 
 #include "CAGE/World.hpp"
-#include "CAGE/Window.hpp"
+#include "CAGE/SFML/sf.hpp"
 #include <string>
 
 namespace cage
@@ -17,7 +17,7 @@ namespace cage
     private:
       void update(float dt);
       void render();
-      Window *m_window;
+      SfRenderWindow *m_renderWindow;
       World *m_activeWorld;
   };
 }

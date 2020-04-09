@@ -1,6 +1,8 @@
 #ifndef CAGE__ENTITY_HPP
 #define CAGE__ENTITY_HPP
 
+#include "CAGE/SFML/sf.hpp"
+
 namespace cage
 {
   class Entity
@@ -10,7 +12,7 @@ namespace cage
       virtual ~Entity();
 
       virtual void update(float dt);
-      virtual void render();
+      virtual void render(SfRenderTarget &renderTarget);
   };
 }
 
