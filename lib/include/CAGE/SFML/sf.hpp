@@ -6,14 +6,14 @@
 
 namespace cage
 {
-  typedef sf::RenderWindow SfRenderWindow;
-  typedef sf::Drawable SfDrawable;
-  typedef sf::VideoMode SfVideoMode;
-  typedef sf::Event SfEvent;
-  typedef sf::Event::EventType SfEventType;
-  typedef sf::RenderTarget SfRenderTarget;
-  typedef sf::Clock SfClock;
-  typedef sf::Time SfTime;
+  typedef sf::RenderWindow RenderWindow;
+  typedef sf::Drawable Drawable;
+  typedef sf::VideoMode VideoMode;
+  typedef sf::Event Event;
+  typedef sf::Event::EventType EventType;
+  typedef sf::RenderTarget RenderTarget;
+  typedef sf::Clock Clock;
+  typedef sf::Time Time;
 };
 
 #endif

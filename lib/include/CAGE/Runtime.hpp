@@ -17,7 +17,7 @@ namespace cage
     private:
       void update(float dt);
       void render();
-      SfRenderWindow *m_renderWindow;
+      RenderWindow *m_renderWindow;
       World *m_activeWorld;
   };
 }

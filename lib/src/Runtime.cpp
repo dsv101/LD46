@@ -1,7 +1,7 @@
 #include "CAGE/Runtime.hpp"
 
 cage::Runtime::Runtime() :
-  m_renderWindow(new cage::SfRenderWindow(cage::SfVideoMode(1280, 720), "My Game")),
+  m_renderWindow(new cage::RenderWindow(cage::VideoMode(1280, 720), "My Game")),
   m_activeWorld(nullptr)
 {
 
@@ -14,13 +14,13 @@ cage::Runtime::~Runtime()
 
 void cage::Runtime::run()
 {
-  SfClock clock;
+  Clock clock;
   while (m_renderWindow->isOpen())
   {
-    SfEvent event;
+    Event event;
     while (m_renderWindow->pollEvent(event))
     {
-      if (event.type == SfEventType::Closed)
+      if (event.type == EventType::Closed)
       {
         m_renderWindow->close();
       }

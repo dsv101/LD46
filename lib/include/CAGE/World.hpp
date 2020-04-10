@@ -19,7 +19,7 @@ namespace cage
       void removeEntity(Entity *entity);
 
       virtual void update(float dt);
-      virtual void render(SfRenderTarget &renderTarget);
+      virtual void render(RenderTarget &renderTarget);
 
     private:
       std::vector<Entity*> m_entities;

@@ -12,7 +12,7 @@ namespace cage
       virtual ~Entity();
 
       virtual void update(float dt);
-      virtual void render(SfRenderTarget &renderTarget);
+      virtual void render(RenderTarget &renderTarget);
   };
 }
 
