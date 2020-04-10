@@ -25,7 +25,9 @@ void cage::Runtime::run()
         m_renderWindow->close();
       }
     }
-    update(clock.getElapsedTime().asSeconds());
+    float dt = clock.getElapsedTime().asSeconds();
+    clock.restart();
+    update(dt);
     m_renderWindow->clear();
     render();
     m_renderWindow->display();
