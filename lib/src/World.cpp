@@ -17,7 +17,7 @@ cage::World::~World()
 
 }
 
-std::vector<cage::Entity*> &cage::World::entities()
+const std::vector<cage::Entity*> cage::World::getEntities()
 {
   return m_entities;
 }
