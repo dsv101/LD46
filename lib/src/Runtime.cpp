@@ -26,7 +26,7 @@ void cage::Runtime::run()
       {
         m_renderWindow->close();
       }
-      else
+      else if (m_renderWindow->hasFocus())
       {
         InputManager::handleEvent(event);
       }
