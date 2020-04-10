@@ -14,6 +14,7 @@ namespace cage
   typedef sf::RenderTarget SfRenderTarget;
   typedef sf::Clock SfClock;
   typedef sf::Time SfTime;
+  typedef sf::Keyboard SfKeyboard;
 };
 
 #endif

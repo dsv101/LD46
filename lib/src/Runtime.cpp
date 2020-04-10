@@ -1,4 +1,5 @@
 #include "CAGE/Runtime.hpp"
+#include "CAGE/InputManager.hpp"
 
 cage::Runtime::Runtime() :
   m_renderWindow(new cage::SfRenderWindow(cage::SfVideoMode(1280, 720), "My Game")),
@@ -17,12 +18,17 @@ void cage::Runtime::run()
   SfClock clock;
   while (m_renderWindow->isOpen())
   {
+    InputManager::flush();
     SfEvent event;
     while (m_renderWindow->pollEvent(event))
     {
       if (event.type == SfEventType::Closed)
       {
         m_renderWindow->close();
+      }
+      else
+      {
+        InputManager::handleEvent(event);
       }
     }
     update(clock.getElapsedTime().asSeconds());
