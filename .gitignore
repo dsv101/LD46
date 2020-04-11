@@ -33,3 +33,5 @@
 
 # Project Structure
 /build*
+/.vs
+/CMakeSettings.json
