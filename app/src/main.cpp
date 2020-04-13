@@ -11,24 +11,78 @@
 class MyWorld : public cage::World
 {
   public:
+    MyWorld() : cage::World()
+    {
+      cage::InputManager::defineKeyset
+      (
+        "move-left",
+        std::vector<cage::Keyboard::Key>
+        {
+          cage::Keyboard::Key::A,
+          cage::Keyboard::Key::Left
+        }
+      );
+
+      cage::InputManager::defineKeyset
+      (
+        "move-right",
+        std::vector<cage::Keyboard::Key>
+        {
+          cage::Keyboard::Key::D,
+          cage::Keyboard::Key::Right
+        }
+      );
+
+      cage::InputManager::defineKeyset
+      (
+        "jump",
+        std::vector<cage::Keyboard::Key>
+        {
+          cage::Keyboard::Key::W,
+          cage::Keyboard::Key::Z,
+          cage::Keyboard::Key::Up,
+          cage::Keyboard::Key::Space
+        }
+      );
+
+      cage::InputManager::defineKeyset
+      (
+        "action",
+        std::vector<cage::Keyboard::Key>
+        {
+          cage::Keyboard::Key::X,
+        }
+      );
+    }
+
     void update(float dt) override
     {
       cage::World::update(dt);
 
-      if (cage::InputManager::isPressed(cage::Keyboard::Key::Z))
+      int hdir = 0;
+      if (cage::InputManager::isKeysetDown("move-left"))
       {
-        std::cout << "pressed z" << std::endl;
+        --hdir;
+      }
+      if (cage::InputManager::isKeysetDown("move-right"))
+      {
+        ++hdir;
       }
 
-      if (cage::InputManager::isReleased(cage::Keyboard::Key::Z))
+      int vdir = 0;
+      if (cage::InputManager::isKeysetPressed("jump"))
       {
-        std::cout << "released z" << std::endl;
+        --vdir;
       }
 
-      if (cage::InputManager::isDown(cage::Keyboard::Key::X))
+      if (cage::InputManager::isKeysetReleased("action"))
       {
-        std::cout << "down x" << std::endl;
+        std::cout << "action released" << std::endl;
       }
+
+      bool moving = hdir != 0 || vdir != 0;
+      if (moving)
+        std::cout << "moving (hdir,vdir):(" << hdir << "," << vdir << ")" << std::endl;
     }
 };
 
