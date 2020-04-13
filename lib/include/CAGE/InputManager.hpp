@@ -9,16 +9,16 @@ namespace cage
   class InputManager
   {
     public:
-      static void handleEvent(SfEvent &event);
+      static void handleEvent(Event &event);
       static void flush();
 
-      static bool isPressed(SfKeyboard::Key key);
-      static bool isReleased(SfKeyboard::Key key);
-      static bool isDown(SfKeyboard::Key key);
+      static bool isPressed(Keyboard::Key key);
+      static bool isReleased(Keyboard::Key key);
+      static bool isDown(Keyboard::Key key);
     private:
-      static std::map<SfKeyboard::Key,bool> s_keysPressed;
-			static std::map<SfKeyboard::Key,bool> s_keysReleased;
-			static std::map<SfKeyboard::Key,bool> s_keysDown;
+      static std::map<Keyboard::Key,bool> s_keysPressed;
+			static std::map<Keyboard::Key,bool> s_keysReleased;
+			static std::map<Keyboard::Key,bool> s_keysDown;
   };
 }
 

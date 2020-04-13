@@ -15,17 +15,17 @@ class MyWorld : public cage::World
     {
       cage::World::update(dt);
 
-      if (cage::InputManager::isPressed(cage::SfKeyboard::Key::Z))
+      if (cage::InputManager::isPressed(cage::Keyboard::Key::Z))
       {
         std::cout << "pressed z" << std::endl;
       }
 
-      if (cage::InputManager::isReleased(cage::SfKeyboard::Key::Z))
+      if (cage::InputManager::isReleased(cage::Keyboard::Key::Z))
       {
         std::cout << "released z" << std::endl;
       }
 
-      if (cage::InputManager::isDown(cage::SfKeyboard::Key::X))
+      if (cage::InputManager::isDown(cage::Keyboard::Key::X))
       {
         std::cout << "down x" << std::endl;
       }
