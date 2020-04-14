@@ -31,11 +31,11 @@ namespace cage
       static float s_mouseX;
       static float s_mouseY;
       static std::map<Mouse::Button,bool> s_mousePressed;
-			static std::map<Mouse::Button,bool> s_mouseReleased;
-			static std::map<Mouse::Button,bool> s_mouseDown;
+      static std::map<Mouse::Button,bool> s_mouseReleased;
+      static std::map<Mouse::Button,bool> s_mouseDown;
       static std::map<Keyboard::Key,bool> s_keysPressed;
-			static std::map<Keyboard::Key,bool> s_keysReleased;
-			static std::map<Keyboard::Key,bool> s_keysDown;
+      static std::map<Keyboard::Key,bool> s_keysReleased;
+      static std::map<Keyboard::Key,bool> s_keysDown;
       static std::map<std::string,std::vector<Keyboard::Key>> s_keysets;
   };
 }
