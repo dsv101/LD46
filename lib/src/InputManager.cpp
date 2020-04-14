@@ -10,7 +10,7 @@ std::map<cage::Keyboard::Key,bool> cage::InputManager::s_keysReleased;
 std::map<cage::Keyboard::Key,bool> cage::InputManager::s_keysDown;
 std::map<std::string,std::vector<cage::Keyboard::Key>> cage::InputManager::s_keysets;
 
-void cage::InputManager::handleEvent(Event &event)
+void cage::InputManager::handleEvent(const Event &event)
 {
   if (event.type == Event::EventType::MouseButtonPressed)
   {
@@ -53,32 +53,32 @@ void cage::InputManager::flush()
   s_keysReleased.clear();
 }
 
-bool cage::InputManager::isPressed(Keyboard::Key key)
+bool cage::InputManager::isPressed(const Keyboard::Key &key)
 {
   return s_keysPressed[key];
 }
 
-bool cage::InputManager::isReleased(Keyboard::Key key)
+bool cage::InputManager::isReleased(const Keyboard::Key &key)
 {
   return s_keysReleased[key];
 }
 
-bool cage::InputManager::isDown(Keyboard::Key key)
+bool cage::InputManager::isDown(const Keyboard::Key &key)
 {
   return s_keysDown[key];
 }
 
-bool cage::InputManager::isPressed(Mouse::Button button)
+bool cage::InputManager::isPressed(const Mouse::Button &button)
 {
   return s_mousePressed[button];
 }
 
-bool cage::InputManager::isReleased(Mouse::Button button)
+bool cage::InputManager::isReleased(const Mouse::Button &button)
 {
   return s_mouseReleased[button];
 }
 
-bool cage::InputManager::isDown(Mouse::Button button)
+bool cage::InputManager::isDown(const Mouse::Button &button)
 {
   return s_mouseDown[button];
 }
