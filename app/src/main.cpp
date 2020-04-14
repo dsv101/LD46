@@ -80,6 +80,18 @@ class MyWorld : public cage::World
         std::cout << "action released" << std::endl;
       }
 
+      if (cage::InputManager::isPressed(cage::Mouse::Button::Left))
+      {
+        const float x = cage::InputManager::getMouseX();
+        const float y = cage::InputManager::getMouseY();
+        std::cout << "mouse left pressed (x,y):" << "(" << x << "," << y << ")" << std::endl;
+      }
+
+      if (cage::InputManager::isReleased(cage::Mouse::Button::Left))
+      {
+        std::cout << "mouse left released" << std::endl;
+      }
+
       bool moving = hdir != 0 || vdir != 0;
       if (moving)
         std::cout << "moving (hdir,vdir):(" << hdir << "," << vdir << ")" << std::endl;

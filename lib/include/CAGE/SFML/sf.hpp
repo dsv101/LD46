@@ -15,6 +15,7 @@ namespace cage
   typedef sf::Clock Clock;
   typedef sf::Time Time;
   typedef sf::Keyboard Keyboard;
+  typedef sf::Mouse Mouse;
 };
 
 #endif
