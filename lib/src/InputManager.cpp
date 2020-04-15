@@ -12,36 +12,34 @@ std::unordered_map<std::string,std::vector<cage::Keyboard::Key>> cage::InputMana
 
 void cage::InputManager::handleEvent(const Event &event)
 {
-  if (event.type == Event::EventType::MouseButtonPressed)
+  switch(event.type)
   {
-    if (!s_mousePressed[event.mouseButton.button] && !s_mouseDown[event.mouseButton.button])
-    {
-      s_mousePressed[event.mouseButton.button] = true;
-    }
-    s_mouseDown[event.mouseButton.button] = true;
-  }
-  else if (event.type == Event::EventType::MouseButtonReleased)
-  {
-    s_mouseReleased[event.mouseButton.button] = true;
-    s_mouseDown[event.mouseButton.button] = false;
-  }
-  else if (event.type == Event::EventType::MouseMoved)
-  {
-    s_mouseX = event.mouseMove.x;
-    s_mouseY = event.mouseMove.y;
-  }
-  else if (event.type == Event::EventType::KeyPressed)
-  {
-    if (!s_keysPressed[event.key.code] && !s_keysDown[event.key.code])
-    {
-      s_keysPressed[event.key.code] = true;
-    }
-    s_keysDown[event.key.code] = true;
-  }
-  else if (event.type == Event::EventType::KeyReleased)
-  {
-    s_keysReleased[event.key.code] = true;
-    s_keysDown[event.key.code] = false;
+    case Event::EventType::MouseButtonPressed:
+      if (!s_mousePressed[event.mouseButton.button] && !s_mouseDown[event.mouseButton.button])
+      {
+        s_mousePressed[event.mouseButton.button] = true;
+      }
+      s_mouseDown[event.mouseButton.button] = true;
+      break;
+    case Event::EventType::MouseButtonReleased:
+      s_mouseReleased[event.mouseButton.button] = true;
+      s_mouseDown[event.mouseButton.button] = false;
+      break;
+    case Event::EventType::MouseMoved:
+      s_mouseX = event.mouseMove.x;
+      s_mouseY = event.mouseMove.y;
+      break;
+    case Event::EventType::KeyPressed:
+      if (!s_keysPressed[event.key.code] && !s_keysDown[event.key.code])
+      {
+        s_keysPressed[event.key.code] = true;
+      }
+      s_keysDown[event.key.code] = true;
+      break;
+    case Event::EventType::KeyReleased:
+      s_keysReleased[event.key.code] = true;
+      s_keysDown[event.key.code] = false;
+      break;
   }
 }
 
