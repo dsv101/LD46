@@ -100,7 +100,8 @@ void cage::InputManager::defineKeyset(const std::string &name, const std::vector
 
 bool cage::InputManager::isKeysetPressed(const std::string &name)
 {
-  if (s_keysets.count(name) > 0)
+  std::unordered_map<std::string,std::vector<Keyboard::Key>>::const_iterator it = s_keysets.find(name);
+  if (it != s_keysets.end())
   {
     for (const Keyboard::Key &key : s_keysets[name])
     {
@@ -116,7 +117,8 @@ bool cage::InputManager::isKeysetPressed(const std::string &name)
 
 bool cage::InputManager::isKeysetReleased(const std::string &name)
 {
-  if (s_keysets.count(name) > 0)
+  std::unordered_map<std::string,std::vector<Keyboard::Key>>::const_iterator it = s_keysets.find(name);
+  if (it != s_keysets.end())
   {
     for (const Keyboard::Key &key : s_keysets[name])
     {
@@ -132,7 +134,8 @@ bool cage::InputManager::isKeysetReleased(const std::string &name)
 
 bool cage::InputManager::isKeysetDown(const std::string &name)
 {
-  if (s_keysets.count(name) > 0)
+  std::unordered_map<std::string,std::vector<Keyboard::Key>>::const_iterator it = s_keysets.find(name);
+  if (it != s_keysets.end())
   {
     for (const Keyboard::Key &key : s_keysets[name])
     {
