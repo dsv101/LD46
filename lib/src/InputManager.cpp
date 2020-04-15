@@ -2,13 +2,13 @@
 
 float cage::InputManager::s_mouseX = 0;
 float cage::InputManager::s_mouseY = 0;
-std::map<cage::Mouse::Button,bool> cage::InputManager::s_mousePressed;
-std::map<cage::Mouse::Button,bool> cage::InputManager::s_mouseReleased;
-std::map<cage::Mouse::Button,bool> cage::InputManager::s_mouseDown;
-std::map<cage::Keyboard::Key,bool> cage::InputManager::s_keysPressed;
-std::map<cage::Keyboard::Key,bool> cage::InputManager::s_keysReleased;
-std::map<cage::Keyboard::Key,bool> cage::InputManager::s_keysDown;
-std::map<std::string,std::vector<cage::Keyboard::Key>> cage::InputManager::s_keysets;
+std::unordered_map<cage::Mouse::Button,bool> cage::InputManager::s_mousePressed;
+std::unordered_map<cage::Mouse::Button,bool> cage::InputManager::s_mouseReleased;
+std::unordered_map<cage::Mouse::Button,bool> cage::InputManager::s_mouseDown;
+std::unordered_map<cage::Keyboard::Key,bool> cage::InputManager::s_keysPressed;
+std::unordered_map<cage::Keyboard::Key,bool> cage::InputManager::s_keysReleased;
+std::unordered_map<cage::Keyboard::Key,bool> cage::InputManager::s_keysDown;
+std::unordered_map<std::string,std::vector<cage::Keyboard::Key>> cage::InputManager::s_keysets;
 
 void cage::InputManager::handleEvent(const Event &event)
 {

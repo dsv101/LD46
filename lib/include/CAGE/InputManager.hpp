@@ -2,7 +2,7 @@
 #define CAGE__INPUTMANAGER_HPP
 
 #include "CAGE/SFML/sf.hpp"
-#include <map>
+#include <unordered_map>
 #include <vector>
 
 namespace cage
@@ -30,13 +30,13 @@ namespace cage
     private:
       static float s_mouseX;
       static float s_mouseY;
-      static std::map<Mouse::Button,bool> s_mousePressed;
-      static std::map<Mouse::Button,bool> s_mouseReleased;
-      static std::map<Mouse::Button,bool> s_mouseDown;
-      static std::map<Keyboard::Key,bool> s_keysPressed;
-      static std::map<Keyboard::Key,bool> s_keysReleased;
-      static std::map<Keyboard::Key,bool> s_keysDown;
-      static std::map<std::string,std::vector<Keyboard::Key>> s_keysets;
+      static std::unordered_map<Mouse::Button,bool> s_mousePressed;
+      static std::unordered_map<Mouse::Button,bool> s_mouseReleased;
+      static std::unordered_map<Mouse::Button,bool> s_mouseDown;
+      static std::unordered_map<Keyboard::Key,bool> s_keysPressed;
+      static std::unordered_map<Keyboard::Key,bool> s_keysReleased;
+      static std::unordered_map<Keyboard::Key,bool> s_keysDown;
+      static std::unordered_map<std::string,std::vector<Keyboard::Key>> s_keysets;
   };
 }
 
