@@ -1,4 +1,5 @@
 #include "CAGE/Runtime.hpp"
+#include "CAGE/InputManager.hpp"
 
 cage::Runtime::Runtime() :
   m_renderWindow(new cage::RenderWindow(cage::VideoMode(1280, 720), "My Game")),
@@ -17,12 +18,17 @@ void cage::Runtime::run()
   Clock clock;
   while (m_renderWindow->isOpen())
   {
+    InputManager::flush();
     Event event;
     while (m_renderWindow->pollEvent(event))
     {
       if (event.type == EventType::Closed)
       {
         m_renderWindow->close();
+      }
+      else if (m_renderWindow->hasFocus())
+      {
+        InputManager::handleEvent(event);
       }
     }
     float dt = clock.getElapsedTime().asSeconds();
