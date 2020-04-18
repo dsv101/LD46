@@ -4,9 +4,9 @@ cmake_minimum_required(VERSION 3.14)
 include(FetchContent)
 
 
-project(CageTheShooter  VERSION 0.0.1
-                        DESCRIPTION "First game in the CAGE engine!"
-                        LANGUAGES CXX)
+project(LD46  VERSION 0.0.1
+              DESCRIPTION "First game in the CAGE engine!"
+              LANGUAGES CXX)
 
 
 FetchContent_Declare(
