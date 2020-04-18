@@ -10,7 +10,7 @@ namespace cage
   class Runtime
   {
     public:
-      Runtime();
+      Runtime(unsigned int width=800, unsigned int height=600, const std::string &title="My CAGE Game");
       virtual ~Runtime();
       void run();
       void gotoWorld(World *world);

@@ -100,7 +100,7 @@ class MyWorld : public cage::World
 
 int main()
 {
-  cage::Runtime runtime;
+  cage::Runtime runtime(400, 600, "Yum Yum Carrot");
   MyWorld myWorld;
 
   runtime.gotoWorld(&myWorld);
