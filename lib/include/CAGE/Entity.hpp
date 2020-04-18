@@ -13,7 +13,7 @@ namespace cage
 
       virtual void update(float dt);
       virtual void render(RenderTarget &renderTarget);
-    private:
+    protected:
       Transformable m_transformable;
       Drawable *m_drawable;
   };
