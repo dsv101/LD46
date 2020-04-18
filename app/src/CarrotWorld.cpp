@@ -3,9 +3,11 @@
 
 CarrotWorld::CarrotWorld() :
   cage::World(),
+  m_mountains(),
   m_joe(DUDE_START_X, DUDE_START_Y),
   m_bunch()
 {
+  addEntity(&m_mountains);
   addEntity(&m_joe);
   addEntity(&m_bunch);
 }
