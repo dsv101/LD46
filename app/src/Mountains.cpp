@@ -26,17 +26,17 @@ void Mountains::update(float dt)
 
     if (cage::InputManager::isKeysetDown("move-left"))
     {
-      m_offset -= 60;
+      m_offset -= 120 * dt;
     }
 
     if (cage::InputManager::isKeysetDown("move-right"))
     {
-      m_offset += 60;
+      m_offset += 120 * dt;
     }
 
-    m_spritePurple.setTextureRect(cage::IntRect(m_offset * dt, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
-    m_spriteRed.setTextureRect(cage::IntRect(m_offset * 0.9 * dt, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
-    m_spriteOrange.setTextureRect(cage::IntRect(m_offset * 0.6 * dt, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
+    m_spritePurple.setTextureRect(cage::IntRect(m_offset, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
+    m_spriteRed.setTextureRect(cage::IntRect(m_offset * 0.6, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
+    m_spriteOrange.setTextureRect(cage::IntRect(m_offset * 0.4, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
 }
 
 void Mountains::render(cage::RenderTarget &renderTarget)
