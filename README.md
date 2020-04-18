@@ -1,5 +1,5 @@
-# cage-the-shooter
-Shooter game where you build your ship one piece at a time.
+# yum-yum-carrot
+Grow a carrot, protect a carrot, water a carrot, show off your carrot :)
 
 ## Build
 Run (tested in archlinux):

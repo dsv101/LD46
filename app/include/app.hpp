@@ -7,4 +7,6 @@
 #define DUDE_START_X 200
 #define DUDE_START_Y 536
 #define DUDE_PNG "assets/dude.png"
+#define CARROT_PNG "assets/carrot.png"
+
 #endif
