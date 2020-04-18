@@ -1,11 +1,13 @@
 #include "CAGE/Runtime.hpp"
 #include "CAGE/InputManager.hpp"
 
-cage::Runtime::Runtime() :
-  m_renderWindow(new cage::RenderWindow(cage::VideoMode(1280, 720), "My Game")),
+cage::Runtime::Runtime(unsigned int width, unsigned int height, const std::string &title) :
+  m_renderWindow(new cage::RenderWindow(cage::VideoMode(width, height), title, cage::Style::Titlebar | cage::Style::Close)),
   m_activeWorld(nullptr)
 {
-
+  cage::VideoMode vm = cage::VideoMode::getDesktopMode();
+  cage::Vector2i pos(vm.width/2 - m_renderWindow->getSize().x/2, vm.height/2 - m_renderWindow->getSize().y/2);
+  m_renderWindow->setPosition(pos);
 }
 
 cage::Runtime::~Runtime()
