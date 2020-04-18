@@ -3,16 +3,34 @@
 #include "CAGE/Runtime.hpp"
 #include "CAGE/World.hpp"
 #include "CAGE/InputManager.hpp"
+#include "CAGE/Entity.hpp"
+#include "CAGE/SFML/sf.hpp"
 
 #include "Shooter/app.hpp"
 
 #include <iostream>
 
-class MyWorld : public cage::World
+#define SCREEN_WIDTH 400
+#define SCREEN_HEIGHT 600
+#define TITLE "Yum Yum Carrot"
+#define DUDE_START_X 200
+#define DUDE_START_Y 536
+
+class Dude : public cage::Entity
 {
+  private:
+    const float HSPD = 150;
+
   public:
-    MyWorld() : cage::World()
+    Dude(float x=0.0f, float y=0.0f) :
+      m_texture(),
+      m_sprite(),
+      cage::Entity(x, y, &m_sprite)
     {
+      m_texture.loadFromFile("assets/dude.png");
+      m_sprite.setTexture(m_texture);
+      m_transformable.setOrigin(12, 16);
+
       cage::InputManager::defineKeyset
       (
         "move-left",
@@ -57,8 +75,6 @@ class MyWorld : public cage::World
 
     void update(float dt) override
     {
-      cage::World::update(dt);
-
       int hdir = 0;
       if (cage::InputManager::isKeysetDown("move-left"))
       {
@@ -75,32 +91,30 @@ class MyWorld : public cage::World
         --vdir;
       }
 
-      if (cage::InputManager::isKeysetReleased("action"))
-      {
-        std::cout << "action released" << std::endl;
-      }
+      m_transformable.move(hdir * HSPD * dt, 0);
 
-      if (cage::InputManager::isPressed(cage::Mouse::Button::Left))
-      {
-        const float x = cage::InputManager::getMouseX();
-        const float y = cage::InputManager::getMouseY();
-        std::cout << "mouse left pressed (x,y):" << "(" << x << "," << y << ")" << std::endl;
-      }
+      cage::Entity::update(dt);
+    }
 
-      if (cage::InputManager::isReleased(cage::Mouse::Button::Left))
-      {
-        std::cout << "mouse left released" << std::endl;
-      }
+  private:
+    cage::Texture m_texture;
+    cage::Sprite m_sprite;
+};
 
-      bool moving = hdir != 0 || vdir != 0;
-      if (moving)
-        std::cout << "moving (hdir,vdir):(" << hdir << "," << vdir << ")" << std::endl;
+class MyWorld : public cage::World
+{
+  private:
+    Dude dude;
+  public:
+    MyWorld() : cage::World(), dude(DUDE_START_X, DUDE_START_Y)
+    {
+      addEntity(&dude);
     }
 };
 
 int main()
 {
-  cage::Runtime runtime(400, 600, "Yum Yum Carrot");
+  cage::Runtime runtime(SCREEN_WIDTH, SCREEN_HEIGHT, TITLE);
   MyWorld myWorld;
 
   runtime.gotoWorld(&myWorld);
