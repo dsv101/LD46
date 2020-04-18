@@ -3,16 +3,39 @@
 #include "CAGE/Runtime.hpp"
 #include "CAGE/World.hpp"
 #include "CAGE/InputManager.hpp"
+#include "CAGE/Entity.hpp"
+#include "CAGE/SFML/sf.hpp"
 
 #include "Shooter/app.hpp"
 
 #include <iostream>
 
-class MyWorld : public cage::World
+class Dude : public cage::Entity
 {
   public:
-    MyWorld() : cage::World()
+    Dude(float x=0.0f, float y=0.0f) :
+      m_texture(),
+      m_sprite(),
+      cage::Entity(x, y, &m_sprite)
     {
+      m_texture.loadFromFile("assets/dude.png");
+      m_sprite.setTexture(m_texture);
+    }
+
+  private:
+    cage::Texture m_texture;
+    cage::Sprite m_sprite;
+};
+
+class MyWorld : public cage::World
+{
+  private:
+    Dude dude;
+  public:
+    MyWorld() : cage::World(), dude()
+    {
+      addEntity(&dude);
+
       cage::InputManager::defineKeyset
       (
         "move-left",
