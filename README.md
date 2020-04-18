@@ -8,7 +8,7 @@ Run (tested in archlinux):
     cd build
     cmake ..
     make
-    
-An executable will be made in `/build/app/src/Shooter`, libraries are statically linked currently.
+
+An executable will be made in `/build/app/src/` called `carrot`, libraries are statically linked currently.
 
 Requires OpenAl, libUDev, c++17, cmake 3.14+
