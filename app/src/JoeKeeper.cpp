@@ -17,10 +17,12 @@ void JoeKeeper::update(float dt)
   if (cage::InputManager::isKeysetDown("move-left"))
   {
     --hdir;
+    m_faceDir = -1;
   }
   if (cage::InputManager::isKeysetDown("move-right"))
   {
     ++hdir;
+    m_faceDir = 1;
   }
 
   int vdir = 0;
@@ -32,4 +34,12 @@ void JoeKeeper::update(float dt)
   m_transformable.move(hdir * HSPD * dt, 0);
 
   cage::Entity::update(dt);
+}
+
+cage::Vector2f JoeKeeper::getHandPosition() const
+{
+  cage::Vector2f pos = m_transformable.getPosition();
+  pos.x += m_faceDir * 12;
+
+  return pos;
 }

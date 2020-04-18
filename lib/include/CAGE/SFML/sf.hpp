@@ -17,6 +17,7 @@ namespace cage
   typedef sf::Keyboard Keyboard;
   typedef sf::Mouse Mouse;
   typedef sf::Vector2i Vector2i;
+  typedef sf::Vector2f Vector2f;
   namespace Style = sf::Style;
   typedef sf::Transformable Transformable;
   typedef sf::Texture Texture;
