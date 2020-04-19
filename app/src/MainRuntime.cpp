@@ -46,5 +46,5 @@ MainRuntime::MainRuntime() :
     }
   );
 
-  gotoWorld(&m_carrotWorld);
+  gotoWorld(m_carrotWorld);
 }

@@ -43,9 +43,14 @@ void cage::Runtime::run()
   }
 }
 
-void cage::Runtime::gotoWorld(World *world)
+void cage::Runtime::gotoWorld(World &world)
 {
-  m_activeWorld = world;
+  if (m_activeWorld != nullptr)
+    m_activeWorld->onLeave(*this);
+
+  m_activeWorld = &world;
+
+  m_activeWorld->onEnter(*this);
 }
 
 void cage::Runtime::update(float dt)

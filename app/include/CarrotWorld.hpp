@@ -13,12 +13,15 @@ class CarrotWorld : public cage::World
   public:
     CarrotWorld();
     void update(float dt) override;
+    void onEnter(cage::Runtime &runtime) override;
+    void onLeave(cage::Runtime &runtime) override;
   private:
     Mountains m_mountains;
     JoeKeeper m_joe;
     BunchOfCarrots m_bunch;
     Pick m_pick;
     Ground m_ground;
+    cage::Music m_music;
 };
 
 #endif

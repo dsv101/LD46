@@ -7,6 +7,7 @@
 
 namespace cage
 {
+  class Runtime;
   class World
   {
     public:
@@ -20,6 +21,9 @@ namespace cage
 
       virtual void update(float dt);
       virtual void render(RenderTarget &renderTarget);
+
+      virtual void onEnter(cage::Runtime &runtime) { };
+      virtual void onLeave(cage::Runtime &runtime) { };
 
     private:
       std::vector<Entity*> m_entities;

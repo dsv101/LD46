@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
+#include <SFML/Audio.hpp>
 
 namespace cage
 {
@@ -24,6 +25,7 @@ namespace cage
   typedef sf::Sprite Sprite;
   typedef sf::IntRect IntRect;
   typedef sf::View View;
+  typedef sf::Music Music;
 };
 
 #endif

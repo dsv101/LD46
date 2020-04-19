@@ -17,5 +17,6 @@
 #define PICK_START_Y 536
 #define CAN_PNG "assets/can.png"
 #define GROUND_PNG "assets/ground.png"
+#define SONG_1_OGG "assets/song_1_1.ogg"
 
 #endif

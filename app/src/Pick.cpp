@@ -29,17 +29,18 @@ void Pick::update(float dt)
 
   if (isHeld())
   {
-    if (cage::InputManager::isKeysetPressed("move-left"))
+    if (cage::InputManager::isKeysetDown("move-left"))
     {
       scaleX = -1.0f;
     }
-    if (cage::InputManager::isKeysetPressed("move-right"))
+    else if (cage::InputManager::isKeysetDown("move-right"))
     {
       scaleX = 1.0f;
     }
     m_sprite.setScale(scaleX, 1.0f);
   }
-  
+
+  m_transformable.setRotation(m_timer * 400 * scaleX);
   cage::Entity::update(dt);
 }
 
