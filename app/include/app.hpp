@@ -11,5 +11,6 @@
 #define MOUNTAINS_PURPLE_PNG "assets/mountains-purple.png"
 #define MOUNTAINS_RED_PNG "assets/mountains-red.png"
 #define MOUNTAINS_ORANGE_PNG "assets/mountains-orange.png"
+#define SKY_PNG "assets/sky.png"
 
 #endif

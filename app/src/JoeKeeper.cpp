@@ -13,26 +13,34 @@ JoeKeeper::JoeKeeper(float x, float y) :
 
 void JoeKeeper::update(float dt)
 {
-  int hdir = 0;
   if (cage::InputManager::isKeysetDown("move-left"))
   {
-    --hdir;
     m_faceDir = -1;
   }
   if (cage::InputManager::isKeysetDown("move-right"))
   {
-    ++hdir;
     m_faceDir = 1;
   }
-
-  int vdir = 0;
-  if (cage::InputManager::isKeysetPressed("jump"))
+  if (cage::InputManager::isKeysetPressed("jump") && vsp == 0.0f)
   {
-    --vdir;
+    vsp = -JMP;
   }
 
-  m_transformable.move(hdir * HSPD * dt, 0);
+  cage::Vector2f pos = m_transformable.getPosition();
 
+  vsp += GRAV_HI;
+  if (vsp != 0.0f)
+  {
+    pos.y += vsp * dt;
+  }
+
+  if (pos.y > DUDE_START_Y)
+  {
+    pos.y = DUDE_START_Y;
+    vsp = 0.0f;
+  }
+
+  m_transformable.setPosition(pos);
   cage::Entity::update(dt);
 }
 
@@ -42,4 +50,9 @@ cage::Vector2f JoeKeeper::getHandPosition() const
   pos.x += m_faceDir * 12;
 
   return pos;
+}
+
+bool JoeKeeper::isOnGround()
+{
+  return m_transformable.getPosition().y == DUDE_START_Y;
 }

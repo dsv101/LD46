@@ -18,6 +18,11 @@ Mountains::Mountains() :
   m_textureOrange.setRepeated(true);
   m_spriteOrange.setTexture(m_textureOrange);
   m_spriteOrange.setTextureRect(cage::IntRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
+
+  m_textureSky.loadFromFile(SKY_PNG);
+  m_textureSky.setRepeated(true);
+  m_spriteSky.setTexture(m_textureSky);
+  m_spriteSky.setTextureRect(cage::IntRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
 }
 
 void Mountains::update(float dt)
@@ -37,10 +42,12 @@ void Mountains::update(float dt)
     m_spritePurple.setTextureRect(cage::IntRect(m_offset, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
     m_spriteRed.setTextureRect(cage::IntRect(m_offset * 0.6, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
     m_spriteOrange.setTextureRect(cage::IntRect(m_offset * 0.4, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
+    m_spriteOrange.setTextureRect(cage::IntRect(m_offset * 0.15, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
 }
 
 void Mountains::render(cage::RenderTarget &renderTarget)
 {
+  renderTarget.draw(m_spriteSky, m_transformable.getTransform());
   renderTarget.draw(m_spriteOrange, m_transformable.getTransform());
   renderTarget.draw(m_spriteRed, m_transformable.getTransform());
   renderTarget.draw(m_spritePurple, m_transformable.getTransform());

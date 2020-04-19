@@ -19,10 +19,26 @@ void CarrotWorld::update(float dt)
     cage::Vector2f joeHandPos = m_joe.getHandPosition();
     m_bunch.setPosition(joeHandPos.x, joeHandPos.y);
 
-    if (cage::InputManager::isKeysetPressed("action"))
+    if (cage::InputManager::isKeysetPressed("action") && m_joe.isOnGround())
     {
       m_bunch.plant(joeHandPos.x, joeHandPos.y + 16);
     }
+  }
+
+  float offsetX = 0.0f;
+  if (cage::InputManager::isKeysetDown("move-left"))
+  {
+    offsetX += 120 * dt;
+  }
+
+  if (cage::InputManager::isKeysetDown("move-right"))
+  {
+    offsetX -= 120 * dt;
+  }
+
+  if (m_bunch.isPlanted())
+  {
+    m_bunch.moveX(offsetX);
   }
 
   cage::World::update(dt);
