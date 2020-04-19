@@ -17,7 +17,7 @@ void JoeKeeper::update(float dt)
   {
     m_faceDir = -1;
   }
-  if (cage::InputManager::isKeysetDown("move-right"))
+  else if (cage::InputManager::isKeysetDown("move-right"))
   {
     m_faceDir = 1;
   }

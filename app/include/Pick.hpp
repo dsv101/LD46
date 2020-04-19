@@ -6,7 +6,7 @@
 class Pick : public cage::Entity
 {
   public:
-    Pick(float x=0.0f, float y=0.0f, float swingLength=1.0f);
+    Pick(float x=0.0f, float y=0.0f, float swingLength=0.1f);
     void swing();
     bool isSwinging();
     void update(float dt) override;

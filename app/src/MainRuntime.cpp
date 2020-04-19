@@ -46,5 +46,14 @@ MainRuntime::MainRuntime() :
     }
   );
 
-  gotoWorld(&m_carrotWorld);
+  cage::InputManager::defineKeyset
+  (
+    "mute",
+    std::vector<cage::Keyboard::Key>
+    {
+      cage::Keyboard::Key::M,
+    }
+  );
+
+  gotoWorld(m_carrotWorld);
 }
