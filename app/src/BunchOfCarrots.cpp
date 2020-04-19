@@ -63,3 +63,8 @@ void BunchOfCarrots::plant(float x, float y)
   setPosition(x, y);
   m_isPlanted = true;
 }
+
+void BunchOfCarrots::moveX(float offsetX)
+{
+  m_transformable.move(offsetX, 0.0f);
+}

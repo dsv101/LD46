@@ -20,6 +20,7 @@ class BunchOfCarrots : public cage::Entity
     bool isPlanted() const;
     void setPosition(float x, float y);
     void plant(float x, float y);
+    void moveX(float offsetX);
 };
 
 #endif

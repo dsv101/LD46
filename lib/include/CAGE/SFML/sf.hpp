@@ -22,6 +22,8 @@ namespace cage
   typedef sf::Transformable Transformable;
   typedef sf::Texture Texture;
   typedef sf::Sprite Sprite;
+  typedef sf::IntRect IntRect;
+  typedef sf::View View;
 };
 
 #endif
