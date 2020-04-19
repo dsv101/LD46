@@ -12,5 +12,10 @@
 #define MOUNTAINS_RED_PNG "assets/mountains-red.png"
 #define MOUNTAINS_ORANGE_PNG "assets/mountains-orange.png"
 #define SKY_PNG "assets/sky.png"
+#define PICK_PNG "assets/pick.png"
+#define PICK_START_X 300
+#define PICK_START_Y 536
+#define CAN_PNG "assets/can.png"
+#define GROUND_PNG "assets/ground.png"
 
 #endif

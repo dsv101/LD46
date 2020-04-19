@@ -5,6 +5,7 @@
 #include "CAGE/InputManager.hpp"
 #include "CAGE/Runtime.hpp"
 #include "CAGE/World.hpp"
+#include "CAGE/Math.hpp"
 #include "CAGE/SFML/sf.hpp"
 
 #endif
