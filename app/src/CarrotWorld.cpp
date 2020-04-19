@@ -6,12 +6,14 @@ CarrotWorld::CarrotWorld() :
   m_mountains(),
   m_joe(DUDE_START_X, DUDE_START_Y),
   m_bunch(),
-  m_pick(PICK_START_X, PICK_START_Y)
+  m_pick(PICK_START_X, PICK_START_Y),
+  m_ground()
 {
   addEntity(&m_mountains);
   addEntity(&m_bunch);
   addEntity(&m_pick);
   addEntity(&m_joe);
+  addEntity(&m_ground);
 }
 
 void CarrotWorld::update(float dt)
@@ -59,6 +61,8 @@ void CarrotWorld::update(float dt)
   {
     m_pick.hold(joeHandPos.x, joeHandPos.y);
   }
+
+  m_ground.moveX(offsetX);
 
   cage::World::update(dt);
 }

@@ -16,5 +16,6 @@
 #define PICK_START_X 300
 #define PICK_START_Y 536
 #define CAN_PNG "assets/can.png"
+#define GROUND_PNG "assets/ground.png"
 
 #endif

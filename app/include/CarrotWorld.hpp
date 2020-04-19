@@ -6,6 +6,7 @@
 #include "BunchOfCarrots.hpp"
 #include "Mountains.hpp"
 #include "Pick.hpp"
+#include "Ground.hpp"
 
 class CarrotWorld : public cage::World
 {
@@ -17,6 +18,7 @@ class CarrotWorld : public cage::World
     JoeKeeper m_joe;
     BunchOfCarrots m_bunch;
     Pick m_pick;
+    Ground m_ground;
 };
 
 #endif
