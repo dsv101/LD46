@@ -22,6 +22,7 @@ class CarrotWorld : public cage::World
     Pick m_pick;
     Ground m_ground;
     cage::Music m_music;
+    bool m_isMuted;
 };
 
 #endif

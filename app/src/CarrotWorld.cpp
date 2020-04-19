@@ -8,7 +8,8 @@ CarrotWorld::CarrotWorld() :
   m_bunch(),
   m_pick(PICK_START_X, PICK_START_Y),
   m_ground(),
-  m_music()
+  m_music(),
+  m_isMuted(false)
 {
   m_music.openFromFile(SONG_1_OGG);
   m_music.setLoop(true);
@@ -30,6 +31,19 @@ void CarrotWorld::update(float dt)
   if (cage::InputManager::isKeysetDown("move-right"))
   {
     offsetX -= 120 * dt;
+  }
+
+  if (cage::InputManager::isKeysetPressed("mute"))
+  {
+    m_isMuted = !m_isMuted;
+    if (m_isMuted)
+    {
+      m_music.pause();
+    }
+    else
+    {
+      m_music.play();
+    }
   }
 
   cage::Vector2f joeHandPos = m_joe.getHandPosition();
